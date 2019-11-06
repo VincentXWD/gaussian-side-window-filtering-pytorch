@@ -12,13 +12,12 @@
 
 **If you find this work is helpful, please cite the original paper.**
 ```
-@article{yin2019side,
-  title={Side window guided filtering},
-  author={Yin, Hui and Gong, Yuanhao and Qiu, Guoping},
-  journal={Signal Processing},
-  volume={165},
-  pages={315--330},
-  year={2019},
-  publisher={Elsevier}
+@misc{yin2019window,
+    title={Side Window Filtering},
+    author={Hui Yin and Yuanhao Gong and Guoping Qiu},
+    year={2019},
+    eprint={1905.07177},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
 }
 ```
