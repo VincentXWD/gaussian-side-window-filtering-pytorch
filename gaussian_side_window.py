@@ -134,12 +134,17 @@ class SideWindowGaussianSmoothing(object):
 if __name__ == '__main__':
     import imageio
     import numpy as np
-    img = np.transpose(np.array([imageio.imread('./lena.jpeg')]), [0, 3, 1, 2])
+    img = np.transpose(np.array([imageio.imread('./img/kirai_noise.jpeg')]), [0, 3, 1, 2])
     img = torch.from_numpy(img).float()
 
-    gaussian = SideWindowGaussianSmoothing(iteration=2, radius=5, sigma=3)
+    side_window_gaussian = SideWindowGaussianSmoothing(iteration=2, radius=5, sigma=3)
+    gaussian = GaussianSmoothing(channels=3, weight_size=5, kernel_size=5, sigma=3)
 
-    img = gaussian(img).numpy()[0]
-    img = np.transpose(img, [1, 2, 0]).astype('uint8')
-    imageio.imwrite('./lena_out.jpeg', img)
+    img_gaussian = gaussian(img).numpy()[0]
+    img_gaussian = np.transpose(img_gaussian, [1, 2, 0]).astype('uint8')
+    imageio.imwrite('./img/kirai_gaussian_out.jpeg', img_gaussian)
+
+    img_side_window = side_window_gaussian(img).numpy()[0]
+    img_side_window = np.transpose(img_side_window, [1, 2, 0]).astype('uint8')
+    imageio.imwrite('./img/kirai_sidewindow_out.jpeg', img_side_window)
 
